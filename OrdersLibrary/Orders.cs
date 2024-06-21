@@ -9,9 +9,13 @@ namespace OrdersLibrary
     public class Orders
     {
         public int Id { get; set; } = 0;
-        public int CustomerId { get; set; } = 0;
-        public DateTime Date { get; set; } = DateTime.MinValue;
-        public string Description { get; set; } = string.Empty;
+        public int? CustomerId { get; set; } = 0;
+        public DateTime Date { get; set; } = default(DateTime);
+        public string? Description { get; set; } = string.Empty;
 
+        public override string ToString()
+        {
+            return $"{Id,3} | {CustomerId,3} | {Date,-25} | {Description} ";
+        }
     }
 }

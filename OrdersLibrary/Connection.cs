@@ -10,7 +10,7 @@ namespace OrdersLibrary
     public class Connection
     {
 
-        public string _connectionString { get; set; } = string.Empty;
+        private string _connectionString { get; set; } = string.Empty;
         private SqlConnection? _connection { get; set; } = null;
 
         public SqlConnection? GetConnection()
@@ -23,18 +23,17 @@ namespace OrdersLibrary
             _connection.Open();
             if (_connection.State != System.Data.ConnectionState.Open)
             {
+                _connection = null;
                 throw new Exception("Unable to Connect!");
             }
         }
-
         public void Close()
         {
             _connection?.Close();
         }
-
         public Connection(string connectionString) 
         {
-            connectionString = _connectionString;
+            _connectionString = connectionString; 
         }
     }
 }
