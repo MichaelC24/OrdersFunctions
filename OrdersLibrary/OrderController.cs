@@ -60,7 +60,6 @@ namespace OrdersLibrary
             return orders;
 
         }
-
         public bool Create(Orders order)
         {
 
@@ -97,7 +96,6 @@ namespace OrdersLibrary
 
             return rowsAffected == 1 ? true : false ;
         }
-
         private Orders SqlConvertToClass(SqlDataReader reader) //takes in a reader and returns an Orders type
         {
             var order = new Orders();
@@ -124,9 +122,7 @@ namespace OrdersLibrary
         }
         public OrderController(Connection connection) // Contructor to pass the connection string that was passed
                                                       // from program to the Connection class to the property _connection in this class OrderController
-
         {
-
             if (connection.GetConnection() != null)
             {
                 _connection = connection.GetConnection()!; // need to make sure _connection is on the right side 
